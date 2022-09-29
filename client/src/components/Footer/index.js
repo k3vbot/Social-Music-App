@@ -6,7 +6,7 @@ const Player = () => (
     <Card body outline color="success" className="mx-auto my-5" style={{ width: '100rem' }}>
         <AudioPlayer
             autoPlay
-            src="http://example.com/audio.mp3"
+            src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
             onPlay={e => console.log("onPlay")}
         // other props here
         />
