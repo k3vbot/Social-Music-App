@@ -8,210 +8,108 @@ function Home() {
         <Container>
             <Row>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-5" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px120" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-5" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-5" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-5" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Card body outline color="success" className="mx-auto my-3" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
+                        <Card.Body>
+                            <Card.Title>Song Title</Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
+                            <Card.Text>
+                                Song Data go in here
+                            </Card.Text>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-3" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-3" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>
                 <Col>
-                    <Card style={{ width: '18rem' }}>
+                    <Card body outline color="success" className="mx-auto my-3" style={{ width: '12rem' }}>
+                        <Card.Img variant="top" src="holder.js/100px180" />
                         <Card.Body>
                             <Card.Title>Song Title</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
                             <Card.Text>
                                 Song Data go in here
                             </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Body>
-                            <Card.Title>Song Title</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">Singer</Card.Subtitle>
-                            <Card.Text>
-                                Song Data go in here
-                            </Card.Text>
-                            <Card.Link href="#">Song Link</Card.Link>
-                            <Card.Link href="#">Another Link</Card.Link>
+                            <Card.Link href="#">Click to play</Card.Link>
                         </Card.Body>
                     </Card>
                 </Col>

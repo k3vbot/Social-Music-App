@@ -7,7 +7,6 @@ const Header = () => {
     return (
         <div>
             <NavbarHead />
-            <p>Write something here if you want</p>
         </div>
 
 
