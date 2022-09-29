@@ -20,14 +20,14 @@ function NavbarHead() {
             <Nav.Link href="#action1">Home</Nav.Link>
             <Nav.Link href="#action2">Songs</Nav.Link>
             <Nav.Link href="#action2">Contact</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+            <NavDropdown title="Login" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">User Login</NavDropdown.Item>
               <NavDropdown.Item href="#action4">
-                Another action
+                Admin Login
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">
-                Something else here
+                About
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
