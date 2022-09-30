@@ -36,9 +36,9 @@
     transform: rotate(360deg);
   }
 }
-/* possibly find a good background image instead of background color */
+
 body {
-  background-color: black;
+  background-image: url('mediumBackground.jpg');
 }
 /* .card is adding the glow effect to cards */
 .card::after {
