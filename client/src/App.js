@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // all components are here
 import Home from './pages/Home';
 import Header from './components/Header';
-import Footer from './components/Footer';
+import Player from './components/Footer';
 
 
 
@@ -13,7 +14,8 @@ function App() {
     <>
       <div>
         <Header />
-        <Footer/>
+        <Home />
+        <Player/>
       </div>
     </>
 
