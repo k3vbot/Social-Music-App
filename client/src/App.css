@@ -36,3 +36,83 @@
     transform: rotate(360deg);
   }
 }
+/* possibly find a good background image instead of background color */
+body {
+  background-color: black;
+}
+/* .card is adding the glow effect to cards */
+.card::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ffd800, #ff5520, #750cf2, #0cbcf2);
+  z-index: -2;
+  filter: blur(10px);
+}
+
+.navbar {
+  background-color: black;
+  padding: 20px;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 50px;
+  text-shadow: 10px 0 10px green;
+}
+
+.navbar-brand:hover {
+  color: white;
+  font-size: 50px;
+  text-shadow: 10px 0 10px white;
+  transition: ease-in .2s;
+}
+
+.nav-link {
+  display: inline-block;
+  position: relative;
+  color: white;
+}
+
+/* adding the underline effect to the navlinks */
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(14, 240, 14);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navbar-nav:hover {
+  --bs-nav-link-hover-color: white;
+  color: white;
+}
+
+.navbar-nav .nav-link.active {
+  color: white;
+}
