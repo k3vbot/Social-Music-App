@@ -39,6 +39,7 @@
 
 body {
   background-image: url('mediumBackground.jpg');
+  font-family: 'StalinistOne';
 }
 /* .card is adding the glow effect to cards */
 .card::after {
