@@ -61,12 +61,12 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in to use this feature.');
         },
-        removeAlbum: async (parent, { albumId }, context) => {
+        removeAlbum: async (parent, { albumName }, context) => {
             if (context.user) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
                     { _id: context.user._id },
                     {
-                        $pull: { savedAlbums: { albumId } }
+                        $pull: { savedAlbums: { albumName } }
                     },
                     { new: true }
                 );
