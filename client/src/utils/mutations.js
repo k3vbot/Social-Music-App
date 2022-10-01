@@ -25,11 +25,11 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_ALBUM = gql`
-    mutation saveAlbum($albumName: String!, $artist: String!, $image: String, $link: String) {
-        saveAlbum(albumName: $albumName, artist: $artist, image: $image, link: $link) {
+    mutation saveAlbum($AlbumName: String!, $artist: String!, $image: String, $link: String) {
+        saveAlbum(AlbumName: $AlbumName, artist: $artist, image: $image, link: $link) {
             username
-            savedAlbumss {
-                albumName
+            savedAlbums {
+                AlbumName
                 artist
                 image
                 link
@@ -39,11 +39,11 @@ export const SAVE_ALBUM = gql`
 `;
 
 export const REMOVE_ALBUM = gql`
-    mutation removeAlbum($albumName: String!) {
-        removeAlbum(albumName: $albumName) {
+    mutation removeAlbum($AlbumName: String!) {
+        removeAlbum(AlbumName: $AlbumName) {
             username
-            savedAlbumss {
-                albumName
+            savedAlbums {
+                AlbumName
                 artist
                 image
                 link

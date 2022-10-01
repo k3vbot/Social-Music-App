@@ -6,15 +6,15 @@ export const getSavedAlbumNames = () => {
     return savedAlbumNames;
   };
   
-  export const saveAlbumNames = (albumIdArr) => {
-    if (albumIdArr.length) {
-      localStorage.setItem('saved_albums', JSON.stringify(albumIdArr));
+  export const saveAlbumNames = (albumNameArr) => {
+    if (albumNameArr.length) {
+      localStorage.setItem('saved_albums', JSON.stringify(albumNameArr));
     } else {
       localStorage.removeItem('saved_albums');
     }
   };
   
-  export const removeAlbumName = (albumName) => {
+  export const removeAlbumName = (AlbumName) => {
     const savedAlbumNames = localStorage.getItem('saved_albums')
       ? JSON.parse(localStorage.getItem('saved_albums'))
       : null;
@@ -23,7 +23,7 @@ export const getSavedAlbumNames = () => {
       return false;
     }
   
-    const updatedSavedAlbumNames = savedAlbumNames?.filter((savedAlbumName) => savedAlbumName !== albumName);
+    const updatedSavedAlbumNames = savedAlbumNames?.filter((savedAlbumName) => savedAlbumName !== AlbumName);
     localStorage.setItem('saved_albums', JSON.stringify(updatedSavedAlbumNames));
   
     return true;
