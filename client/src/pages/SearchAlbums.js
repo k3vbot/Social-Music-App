@@ -114,7 +114,7 @@ const SearchAlbums = () => {
       </Jumbotron>
 
       <Container>
-        <h2>
+        <h2 className='searchResults'>
           {searchedAlbums.length
             ? `Viewing ${searchedAlbums.length} results:`
             : 'Search for a album to begin'}
