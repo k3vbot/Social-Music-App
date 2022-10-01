@@ -1,5 +1,5 @@
 import  React, { useEffect } from 'react';
-import { Container, CardColumns, Card, Button } from 'react-bootstrap';
+import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import { removeAlbumName } from '../utils/localStorage';
 
@@ -52,11 +52,11 @@ const SavedAlbums = () => {
 
   return (
     <>
-      <div class='jumbotron' fluid className='text-light bg-dark'>
+      <Jumbotron fluid className='text-light bg-dark'>
         <Container>
           <h1>Viewing saved albums!</h1>
         </Container>
-      </div>
+      </Jumbotron>
       <Container>
         <h2>
           {userData.SavedAlbums.length
