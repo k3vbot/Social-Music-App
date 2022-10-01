@@ -87,6 +87,7 @@ body {
 .nav-link {
   display: inline-block;
   position: relative;
+  font-size: 20px;
   color: white;
 }
 
@@ -109,6 +110,10 @@ body {
   transform-origin: bottom left;
 }
 
+.navbar-nav .nav-link {
+  color: white;
+}
+
 .navbar-nav:hover {
   --bs-nav-link-hover-color: white;
   color: white;
@@ -116,4 +121,15 @@ body {
 
 .navbar-nav .nav-link.active {
   color: white;
+}
+
+.searchResults {
+  background-color: black;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 5px green;
+}
+
+.bg-dark {
+  background-color: black !important;
 }

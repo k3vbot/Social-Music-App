@@ -13,7 +13,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='black' variant='white' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
          Albums Search
