@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Jumbotron, Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
+import { Container, Col, Form, Button, Card, CardColumns } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
 import { searchFmAlbums } from '../utils/API';
@@ -85,7 +85,7 @@ const SearchAlbums = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      <div class='jumbotron' fluid className='text-light bg-dark'>
         <Container>
           <h1>Search for albums!</h1>
           {
@@ -111,7 +111,7 @@ const SearchAlbums = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
+      </div>
 
       <Container>
         <h2>
