@@ -46,9 +46,10 @@ const resolvers = {
             return { token, user };
         },
         saveAlbum: async (parent, args, context) => {
-            if (context.user) {
+            console.log(context.creator);
+            if (context.creator) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
-                    { _id: context.user._id },
+                    { _id: context.creator._id },
                     { $addToSet:  { savedAlbums: args } },
                     {
                         new: true,
@@ -57,14 +58,15 @@ const resolvers = {
         );
 
         return updatedUserAlbums;
-    }
+    }else{
 
-    throw new AuthenticationError('You need to be logged in to use this feature.');
+    throw new AuthenticationError('You need to be logged in to use this feature.')
+}
 },
         removeAlbum: async (parent, { AlbumName }, context) => {
-            if (context.user) {
+            if (context.creator) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
-                    { _id: context.user._id },
+                    { _id: context.creator._id },
                     {
                         $pull: { savedAlbums: { AlbumName } }
                     },
