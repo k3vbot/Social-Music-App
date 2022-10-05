@@ -7,7 +7,7 @@ export const GET_ME = gql`
             username
             email
             savedAlbums {
-                albumName
+                AlbumName
                 artist
                 image
                 link

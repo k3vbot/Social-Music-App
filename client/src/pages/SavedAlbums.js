@@ -12,7 +12,7 @@ const SavedAlbums = () => {
 
   useEffect(() => {
     refetch();
-  }, [refetch]);
+  }, [refetch, data]);
 
   const userData = data?.me;
 
@@ -24,7 +24,7 @@ const SavedAlbums = () => {
   const [removeAlbum] = useMutation(REMOVE_ALBUM);
 
   // Function that accepts the album's mongo _id value as param and deletes the album from the database
-  const handleDeleteAlbum = async (albumName) => {
+  const handleDeleteAlbum = async (AlbumName) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -33,10 +33,10 @@ const SavedAlbums = () => {
 
     try {
       // Calls the removeAlbum function to use the REMOVE_ALBUM mutation on the album with the corresponding albumName
-      await removeAlbum({ variables: { albumName }});
+      await removeAlbum({ variables: { AlbumName }});
 
       // Upon success, remove album's id from localStorage
-      removeAlbumName(albumName);
+      removeAlbumName(AlbumName);
 
       // Forces a refetch of the GET_ME query so that the the updated userData and component is displayed without reloading of the page
       refetch();
