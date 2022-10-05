@@ -1,12 +1,12 @@
 const { Schema } = require('mongoose');
 
 const albumSchema = new Schema({
-  artist: {
-      type: String,
-  },
-  albumName: {
+  AlbumName: {
     type: String,
     required: true,
+  },
+  artist: {
+    type: String,
   },
   image: {
     type: String,
