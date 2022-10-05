@@ -129,7 +129,7 @@ const SearchAlbums = () => {
                 <Card.Body>
                   <Card.Title>{album.AlbumName}</Card.Title>
                   <p className='medium'>artist: {album.artist}</p>
-                  <p href={album.link} className='medium'>link: {album.link}</p>
+                  <p href={album.link} className='medium'>Check out the album: <a href={album.link} target='_blank'>Listen Here!</a></p>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedAlbumNames?.some((savedAlbumName) => savedAlbumName === album.AlbumName)}
