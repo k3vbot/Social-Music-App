@@ -71,6 +71,11 @@ body {
   padding: 20px;
 }
 
+.navbar-toggler {
+  background-color: white;
+  border-color: green;
+}
+
 .navbar-brand {
   color: white;
   font-size: 50px;
@@ -90,7 +95,16 @@ body {
   font-size: 20px;
   color: white;
 }
+/* modal for login */
+.nav-pills .nav-link {
+  color: black;
+}
 
+.nav-pills .nav-link.active {
+  color: black;
+  background-color: white;
+}
+/* modal login end */
 /* adding the underline effect to the navlinks */
 .nav-link:after {
   content: '';
