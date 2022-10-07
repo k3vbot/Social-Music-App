@@ -34,10 +34,8 @@ const SavedAlbums = () => {
     try {
       // Calls the removeAlbum function to use the REMOVE_ALBUM mutation on the album with the corresponding albumName
       await removeAlbum({ variables: { AlbumName } });
-
       // Upon success, remove album's id from localStorage
       removeAlbumName(AlbumName);
-
       // Forces a refetch of the GET_ME query so that the the updated userData and component is displayed without reloading of the page
       // refetch();
     } catch (err) {
@@ -59,8 +57,8 @@ const SavedAlbums = () => {
       </Jumbotron>
       <Container>
         <h2 className='searchResults'>
-          {userData.SavedAlbums?.length
-            ? `Viewing ${userData.SavedAlbums.length} saved ${userData.SavedAlbums.length === 1 ? 'album' : 'albums'
+          {userData.savedAlbums.length
+            ? `Viewing ${userData.savedAlbums.length} saved ${userData.savedAlbums.length === 1 ? 'album' : 'albums'
             }:`
             : 'You have no saved albums!'}
         </h2>
@@ -75,14 +73,14 @@ const SavedAlbums = () => {
                     variant='top'
                   />
                 ) : null}
-                
+
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
                   <p className='medium'>artist: {album.artist}</p>
                   <p href={album.link} className='medium'>link: {album.link}</p>
                   <Button
                     className='btn-block btn-danger'
-                    onClick={() => handleDeleteAlbum(album.albumName)}
+                    onClick={() => handleDeleteAlbum(album.AlbumName)}
                   >
                     Deleted this Album!
                   </Button>
