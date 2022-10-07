@@ -1,4 +1,4 @@
-import  React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import { removeAlbumName } from '../utils/localStorage';
@@ -8,20 +8,20 @@ import { REMOVE_ALBUM } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
 
 const SavedAlbums = () => {
- const { loading, error, data, refetch } = useQuery(GET_ME);
-
-  useEffect(() => {
-    refetch();
-  }, [refetch, data]);
-
-  const userData = data?.me;
-
-  if (error) {
-    console.log(error.message);
-  }
+  const { loading, data, error } = useQuery(GET_ME);
+  const [removeAlbum] = useMutation(REMOVE_ALBUM);
+  // useEffect(() => {
+  //   refetch();
+  // }, [refetch, data]);
+  console.log(data, error);
+  const userData = data?.me || {};
+  console.log(userData);
+  // if (error) {
+  //   console.log(error.message);
+  // }
 
   // Applies the REMOVE_ALBUM mutation to the function removeAlbum to be called
-  const [removeAlbum] = useMutation(REMOVE_ALBUM);
+
 
   // Function that accepts the album's mongo _id value as param and deletes the album from the database
   const handleDeleteAlbum = async (AlbumName) => {
@@ -33,13 +33,13 @@ const SavedAlbums = () => {
 
     try {
       // Calls the removeAlbum function to use the REMOVE_ALBUM mutation on the album with the corresponding albumName
-      await removeAlbum({ variables: { AlbumName }});
+      await removeAlbum({ variables: { AlbumName } });
 
       // Upon success, remove album's id from localStorage
       removeAlbumName(AlbumName);
 
       // Forces a refetch of the GET_ME query so that the the updated userData and component is displayed without reloading of the page
-      refetch();
+      // refetch();
     } catch (err) {
       console.error(err);
     }
@@ -54,26 +54,38 @@ const SavedAlbums = () => {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing saved albums!</h1>
+          <h1>Viewing {userData.username}'s albums!</h1>
         </Container>
       </Jumbotron>
       <Container>
         <h2>
-          {userData.SavedAlbums.length
-          ? `Viewing ${userData.SavedAlbums.length} saved ${userData.SavedAlbums.length === 1 ? 'album' : 'albums'}:`
+          {userData.SavedAlbums?.length
+            ? `Viewing ${userData.SavedAlbums.length} saved ${userData.SavedAlbums.length === 1 ? 'album' : 'albums'
+            }:`
             : 'You have no saved albums!'}
         </h2>
         <CardColumns>
-          {userData.SavedAlbums.map((album) => {
+          {userData.SavedAlbums?.map((album) => {
+            console.log(album);
             return (
               <Card key={album.albumName} border='dark'>
-                {album.image ? <Card.Img src={album.image} alt={`The cover for ${album.name}`} variant='top' /> : null}
+                {album.image ? (
+                  <Card.Img
+                    src={album.image}
+                    alt={`The cover for ${album.name}`}
+                    variant='top'
+                  />
+                ) : null}
+
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
                   <p className='medium'>artist: {album.artist}</p>
                   <p href={album.link} className='medium'>link: {album.link}</p>
-                  <Button className='btn-block btn-danger' onClick={() => handleDeleteAlbum(album.albumName)}>
-                    Deleted!
+                  <Button
+                    className='btn-block btn-danger'
+                    onClick={() => handleDeleteAlbum(album.albumName)}
+                  >
+                    Deleted this Album!
                   </Button>
                 </Card.Body>
               </Card>

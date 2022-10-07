@@ -13,8 +13,11 @@ const resolvers = {
             });
         },
         me: async (parent, args, context) => {
+            console.log("16",context.user)
+
             if (context.user) {
-              return User.findOne({ _id: context.user._id }).populate('savedAlbums');
+            
+              return await User.findOne({ _id: context.user._id }).populate('savedAlbums');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -46,7 +49,7 @@ const resolvers = {
             return { token, user };
         },
         saveAlbum: async (parent, args, context) => {
-            console.log(context.creator);
+            // console.log(context.creator);
             if (context.creator) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
                     { _id: context.creator._id },
