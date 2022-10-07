@@ -39,7 +39,7 @@ const SignupForm = () => {
       if (error) {
         console.log(error.message);
       }
-
+console.log(data);
       // Takes the token assigned to the user when created and logges the user in
       Auth.login(data.addUser.token);
     } catch (err) {

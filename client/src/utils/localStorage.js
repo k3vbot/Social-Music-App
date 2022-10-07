@@ -1,4 +1,5 @@
 export const getSavedAlbumNames = () => {
+  // go to localStorage, get the array with the key name saved_albums
     const savedAlbumNames = localStorage.getItem('saved_albums')
       ? JSON.parse(localStorage.getItem('saved_albums'))
       : [];
