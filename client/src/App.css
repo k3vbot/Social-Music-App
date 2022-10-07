@@ -144,6 +144,10 @@ body {
   text-shadow: 0 0 5px green;
 }
 
+.loggedUser {
+  text-align: center;
+}
+
 .bg-dark {
   background-color: black !important;
 }
