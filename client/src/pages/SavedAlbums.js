@@ -15,7 +15,7 @@ const SavedAlbums = () => {
   // }, [refetch, data]);
   console.log(data, error);
   const userData = data?.me || {};
-  console.log(userData);
+  console.log(userData.savedAlbums);
   // if (error) {
   //   console.log(error.message);
   // }
@@ -54,19 +54,18 @@ const SavedAlbums = () => {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing {userData.username}'s albums!</h1>
+          <h1 className='loggedUser'>Viewing {userData.username}'s albums!</h1>
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
+        <h2 className='searchResults'>
           {userData.SavedAlbums?.length
             ? `Viewing ${userData.SavedAlbums.length} saved ${userData.SavedAlbums.length === 1 ? 'album' : 'albums'
             }:`
             : 'You have no saved albums!'}
         </h2>
         <CardColumns>
-          {userData.SavedAlbums?.map((album) => {
-            console.log(album);
+          {userData.savedAlbums?.map((album) => {
             return (
               <Card key={album.albumName} border='dark'>
                 {album.image ? (
@@ -76,7 +75,7 @@ const SavedAlbums = () => {
                     variant='top'
                   />
                 ) : null}
-
+                
                 <Card.Body>
                   <Card.Title>{album.name}</Card.Title>
                   <p className='medium'>artist: {album.artist}</p>
