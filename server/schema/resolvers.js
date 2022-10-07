@@ -13,7 +13,7 @@ const resolvers = {
             });
         },
         me: async (parent, args, context) => {
-            console.log("16",context.user)
+            console.log("16",context)
 
             if (context.user) {
             
@@ -49,10 +49,10 @@ const resolvers = {
             return { token, user };
         },
         saveAlbum: async (parent, args, context) => {
-            // console.log(context.creator);
-            if (context.creator) {
+            // console.log(context.user);
+            if (context.user) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
-                    { _id: context.creator._id },
+                    { _id: context.user._id },
                     { $addToSet:  { savedAlbums: args } },
                     {
                         new: true,
@@ -67,9 +67,9 @@ const resolvers = {
 }
 },
         removeAlbum: async (parent, { AlbumName }, context) => {
-            if (context.creator) {
+            if (context.user) {
                 const updatedUserAlbums = await User.findOneAndUpdate(
-                    { _id: context.creator._id },
+                    { _id: context.user._id },
                     {
                         $pull: { savedAlbums: { AlbumName } }
                     },
