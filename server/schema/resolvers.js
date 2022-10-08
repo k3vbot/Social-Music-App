@@ -4,20 +4,12 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async () => {
-            return User.find({});
-        },
-        user: async (parent, args) => {
-            return User.findOne({
-                args
-            });
-        },
         me: async (parent, args, context) => {
-            console.log("16",context)
+            // console.log("16",context)
 
             if (context.user) {
-            
-              return await User.findOne({ _id: context.user._id }).populate('savedAlbums');
+
+                return await User.findOne({ _id: context.user._id }).select('-__v -password');
             }
             throw new AuthenticationError('You need to be logged in!');
         },
@@ -48,24 +40,23 @@ const resolvers = {
 
             return { token, user };
         },
-        saveAlbum: async (parent, args, context) => {
+        saveAlbum: async (parent, { albumData }, context) => {
             // console.log(context.user);
             if (context.user) {
-                const updatedUserAlbums = await User.findOneAndUpdate(
+                const updatedUserAlbums = await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { $addToSet:  { savedAlbums: args } },
+                    { $push: { savedAlbums: albumData } },
                     {
                         new: true,
-                        runValidators: true,
+                        // runValidators: true,
                     }
-        );
+                );
 
-        return updatedUserAlbums;
-    }else{
+                return updatedUserAlbums;
+            }
 
-    throw new AuthenticationError('You need to be logged in to use this feature.')
-}
-},
+            throw new AuthenticationError('You need to be logged in to use this feature.');
+        },
         removeAlbum: async (parent, { AlbumName }, context) => {
             if (context.user) {
                 const updatedUserAlbums = await User.findOneAndUpdate(

@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -23,13 +22,13 @@ module.exports = {
 		try {
 			const { data } = jwt.verify(token, secret, { maxAge: expiration });
 			req.user = data;
-		} catch (err) {
-			console.log('Invalid token', err);
+		} catch {
+			console.log('Invalid token');
 		}
 
 		return req;
 	},
-	signToken      : function({ username, email, _id }) {
+	signToken: function({ username, email, _id }) {
 		const payload = { username, email, _id };
 
 		return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

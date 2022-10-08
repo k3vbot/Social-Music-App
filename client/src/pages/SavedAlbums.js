@@ -8,20 +8,11 @@ import { REMOVE_ALBUM } from '../utils/mutations';
 import { GET_ME } from '../utils/queries';
 
 const SavedAlbums = () => {
-  const { loading, data, error } = useQuery(GET_ME);
+  const { loading, data } = useQuery(GET_ME);
   const [removeAlbum] = useMutation(REMOVE_ALBUM);
-  // useEffect(() => {
-  //   refetch();
-  // }, [refetch, data]);
-  console.log(data, error);
+
   const userData = data?.me || {};
   console.log(userData);
-  // if (error) {
-  //   console.log(error.message);
-  // }
-
-  // Applies the REMOVE_ALBUM mutation to the function removeAlbum to be called
-
 
   // Function that accepts the album's mongo _id value as param and deletes the album from the database
   const handleDeleteAlbum = async (AlbumName) => {
@@ -54,18 +45,18 @@ const SavedAlbums = () => {
     <>
       <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Viewing {userData.username}'s albums!</h1>
+          <h1 className='loggedUser'>Viewing {userData.username}'s albums!</h1>
         </Container>
       </Jumbotron>
       <Container>
-        <h2>
-          {userData.SavedAlbums?.length
-            ? `Viewing ${userData.SavedAlbums.length} saved ${userData.SavedAlbums.length === 1 ? 'album' : 'albums'
+        <h2 className='searchResults'>
+          {userData.savedAlbums?.length
+            ? `Viewing ${userData.savedAlbums.length} saved ${userData.savedAlbums.length === 1 ? 'album' : 'albums'
             }:`
             : 'You have no saved albums!'}
         </h2>
         <CardColumns>
-          {userData.SavedAlbums?.map((album) => {
+          {userData.savedAlbums?.map((album) => {
             console.log(album);
             return (
               <Card key={album.albumName} border='dark'>

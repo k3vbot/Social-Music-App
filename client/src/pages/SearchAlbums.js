@@ -9,8 +9,9 @@ import { useMutation } from '@apollo/client';
 import { SAVE_ALBUM } from '../utils/mutations'
 
 const SearchAlbums = () => {
+  // create state for holding returned fm api data
   const [searchedAlbums, setsearchedAlbums] = useState([]);
-
+  // create state for holding our search field data
   const [searchInput, setSearchInput] = useState('');
 
   // create state to hold saved AlbumName values
@@ -41,7 +42,7 @@ const SearchAlbums = () => {
       }
 
       const { results } = await response.json();
-     console.log(results.albummatches.album);
+      // console.log(results.albummatches.album);
       const items = results.albummatches.album;
       const albumData = items.map((album) => ({
         AlbumName: album.name,
@@ -49,7 +50,7 @@ const SearchAlbums = () => {
         link: album.url,
         image: album.image[3]['#text'],
       }));
-      console.log(albumData)
+      console.log(albumData, items)
 
       setsearchedAlbums(albumData);
       setSearchInput('');
@@ -59,7 +60,7 @@ const SearchAlbums = () => {
   };
 
   // create function to handle saving a album to our database
-  const handlesaveAlbum = async (AlbumName) => {
+  const handleSaveAlbum = async (AlbumName) => {
     // find the album in `searchedAlbums` state by the matching id
     const albumToSave = searchedAlbums.find((album) => album.AlbumName === AlbumName);
 
@@ -70,14 +71,16 @@ const SearchAlbums = () => {
       return false;
     }
 
-    
+
     try {
       // saveAlbum mutation
-      await saveAlbum({ variables: albumToSave });
-
+      const { data } = await saveAlbum({
+        variables: { albumData: { ...albumToSave } },
+      });
+      
       // if album successfully saves to user's account, save album id to state
       setSavedAlbumNames([...savedAlbumNames, albumToSave.AlbumName]);
-      
+      console.log(savedAlbumNames, albumToSave);
     } catch (err) {
       console.error(err);
     }
@@ -85,13 +88,13 @@ const SearchAlbums = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
+      {/* <Jumbotron fluid className='text-light bg-dark'> */}
         <Container>
-          <h1>Search for albums!</h1>
+          {/* <h1>Search for albums!</h1> */}
           {
-          error ? `There is an error with Apollo Client ${error}!` : null
+            error ? `There is an error with Apollo Client ${error}!` : null
           }
-          <Form onSubmit={handleFormSubmit}>
+          {/* <Form onSubmit={handleFormSubmit}> */}
             <Form.Row>
               <Col xs={12} md={8}>
                 <Form.Control
@@ -109,9 +112,9 @@ const SearchAlbums = () => {
                 </Button>
               </Col>
             </Form.Row>
-          </Form>
+          {/* </Form> */}
         </Container>
-      </Jumbotron>
+      {/* </Jumbotron> */}
 
       <Container>
         <h2 className='searchResults'>
@@ -129,12 +132,12 @@ const SearchAlbums = () => {
                 <Card.Body>
                   <Card.Title>{album.AlbumName}</Card.Title>
                   <p className='medium'>artist: {album.artist}</p>
-                  <p href={album.link} className='medium'>Check out the album: <a href={album.link} target='_blank'>Listen Here!</a></p>
+                  <p href={album.link} className='medium'>Check out the album: <a href={album.link} target='_blank' rel="noopener noreferrer">Listen Here!</a></p>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedAlbumNames?.some((savedAlbumName) => savedAlbumName === album.AlbumName)}
                       className='btn-block btn-info'
-                      onClick={() => handlesaveAlbum(album.AlbumName)}>
+                      onClick={() => handleSaveAlbum(album.AlbumName)}>
                       {savedAlbumNames?.some((savedAlbumName) => savedAlbumName === album.AlbumName)
                         ? 'This album has already been saved!'
                         : 'Save this album!'}
