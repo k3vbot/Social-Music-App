@@ -51,13 +51,18 @@ const SavedAlbums = () => {
 
   // if data isn't here yet, say so
   if (loading) {
-    return <h2>LOADING...</h2>;
+    return <h2 className='loading'>LOADING...</h2>;
   }
 
   return (
     <>
+      <Jumbotron fluid className='text-light bg-dark'>
+        <Container>
+          <h1 className='loggedUser'>Viewing saved albums!</h1>
+        </Container>
+      </Jumbotron>
       <Container>
-        <h2 className='viewalbums'>
+        <h2 className='searchResults'>
           {userData.savedAlbums.length
           ? `Viewing ${userData.savedAlbums.length} saved ${userData.savedAlbums.length === 1 ? 'album' : 'albums'}:`
             : 'You have no saved albums!'}
@@ -70,6 +75,7 @@ const SavedAlbums = () => {
                 <Card.Body>
                   <Card.Title>{album.AlbumName}</Card.Title>
                   <p className='small'>Artist: {album.artist}</p>
+                  <p href={album.link} className='medium'>Check out the album: <a href={album.link} target='_blank' rel="noopener noreferrer">Listen Here!</a></p>
                   <Card.Text>{album.description}</Card.Text>
                   <Button className='btn-block btn-danger' onClick={() => handleDeleteAlbum(album.AlbumName)}>
                     Delete this Album!

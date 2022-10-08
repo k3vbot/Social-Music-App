@@ -122,7 +122,7 @@ const SearchAlbums = () => {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{album.AlbumName}</Card.Title>
-                  <p className='medium'>artist: {album.artist}</p>
+                  <p className='medium'>Artist: {album.artist}</p>
                   <p href={album.link} className='medium'>Check out the album: <a href={album.link} target='_blank' rel="noopener noreferrer">Listen Here!</a></p>
                   {Auth.loggedIn() && (
                     <Button
