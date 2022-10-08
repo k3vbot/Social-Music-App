@@ -41,7 +41,6 @@ const SearchAlbums = () => {
       }
 
       const { results } = await response.json();
-     console.log(results.albummatches.album);
       const items = results.albummatches.album;
       const albumData = items.map((album) => ({
         AlbumName: album.name,
@@ -49,7 +48,6 @@ const SearchAlbums = () => {
         link: album.url,
         image: album.image[3]['#text'],
       }));
-      console.log(albumData)
 
       setsearchedAlbums(albumData);
       setSearchInput('');
@@ -70,7 +68,6 @@ const SearchAlbums = () => {
       return false;
     }
 
-    
     try {
       // saveAlbum mutation
       await saveAlbum({ variables: albumToSave });
@@ -85,9 +82,7 @@ const SearchAlbums = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
         <Container>
-          <h1>Search for albums!</h1>
           {
           error ? `There is an error with Apollo Client ${error}!` : null
           }
@@ -100,7 +95,7 @@ const SearchAlbums = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a album'
+                  placeholder='Search for an album'
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -111,13 +106,12 @@ const SearchAlbums = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
 
       <Container>
         <h2 className='searchResults'>
           {searchedAlbums.length
             ? `Viewing ${searchedAlbums.length} results:`
-            : 'Search for a album to begin'}
+            : 'Search for an album to begin'}
         </h2>
         <CardColumns>
           {searchedAlbums.map((album) => {

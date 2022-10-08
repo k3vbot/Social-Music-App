@@ -56,11 +56,6 @@ const SavedAlbums = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1 className='loggedUser'>Viewing saved albums!</h1>
-        </Container>
-      </Jumbotron>
       <Container>
         <h2 className='searchResults'>
           {userData.savedAlbums.length
