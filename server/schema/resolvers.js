@@ -13,7 +13,7 @@ const resolvers = {
             });
         },
         me: async (parent, args, context) => {
-            console.log("16",context)
+            // console.log("16",context)
 
             if (context.user) {
             

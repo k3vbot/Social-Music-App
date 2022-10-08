@@ -151,3 +151,11 @@ body {
 .bg-dark {
   background-color: black !important;
 }
+
+.viewalbums {
+  background-color: rgb(131, 155, 217)
+}
+
+.h2, h2 {
+  text-align: center;
+}

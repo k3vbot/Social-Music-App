@@ -56,13 +56,8 @@ const SavedAlbums = () => {
 
   return (
     <>
-      <Jumbotron fluid className='text-light bg-dark'>
-        <Container>
-          <h1>Viewing saved albums!</h1>
-        </Container>
-      </Jumbotron>
       <Container>
-        <h2>
+        <h2 className='viewalbums'>
           {userData.savedAlbums.length
           ? `Viewing ${userData.savedAlbums.length} saved ${userData.savedAlbums.length === 1 ? 'album' : 'albums'}:`
             : 'You have no saved albums!'}
